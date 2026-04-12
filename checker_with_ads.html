@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pro Checker</title>
+
+<!-- Popunder Ad -->
+<script src="https://pl29132911.profitablecpmratenetwork.com/a1/37/c8/a137c826ae98f22fc7daee15406bff6e.js"></script>
+<!-- Social Bar Ad -->
+<script src="https://pl29132916.profitablecpmratenetwork.com/8e/1f/f7/8e1ff7d88ada4049400ceff0e8fa9200.js"></script>
+
+<style>
+:root{
+--bg:#0d1117;
+--card:#161b22;
+--gold:#f4c430;
+--gold-dark:#d4a017;
+--text:#e6edf3;
+--muted:#8b949e;
+}
+
+*{margin:0;padding:0;box-sizing:border-box;}
+
+body{
+font-family:Segoe UI,Roboto;
+background:var(--bg);
+color:var(--text);
+}
+
+/* Header */
+.header{
+background:linear-gradient(135deg,#f4c430,#d4a017);
+padding:25px 15px;
+border-bottom-left-radius:20px;
+border-bottom-right-radius:20px;
+text-align:center;
+color:#fff;
+animation:fade 1s ease;
+}
+.bismillah{font-size:20px;font-weight:600;margin-bottom:8px;}
+.welcome{font-size:14px;opacity:0.9;}
+
+/* Container */
+.container{max-width:480px;margin:auto;padding:15px;}
+
+/* Card */
+.card{
+background:var(--card);
+border-radius:16px;
+padding:15px;
+margin-top:-20px;
+box-shadow:0 10px 40px rgba(0,0,0,0.5);
+animation:fade 0.6s ease;
+}
+
+/* Toggle */
+.toggle{
+display:flex;
+background:#0d1117;
+border-radius:10px;
+padding:4px;
+margin-bottom:15px;
+}
+.toggle button{
+flex:1;padding:10px;border:none;
+background:none;color:var(--muted);
+border-radius:8px;cursor:pointer;transition:0.3s;
+}
+.toggle button.active{background:var(--gold);color:#000;}
+
+/* Input */
+.input-box{display:flex;gap:10px;}
+input{
+flex:1;padding:12px;border:none;
+border-radius:10px;background:#0d1117;color:#fff;
+}
+
+/* Search Button */
+.btn{
+background:linear-gradient(145deg,#f4c430,#d4a017);
+color:#000;border:none;padding:12px 18px;
+border-radius:12px;font-weight:700;cursor:pointer;
+box-shadow:0 4px 0 #b8960c;transition:0.2s;
+}
+.btn:active{transform:translateY(3px);box-shadow:0 1px 0 #b8960c;}
+
+/* Smart Link Button */
+.smartlink-btn{
+display:block;width:100%;margin-top:10px;
+padding:11px;
+background:linear-gradient(145deg,#238636,#196c2e);
+color:#fff;border:none;border-radius:10px;
+font-weight:700;font-size:13px;cursor:pointer;
+text-align:center;box-shadow:0 4px 0 #0f4a1f;
+transition:0.2s;letter-spacing:0.3px;
+}
+.smartlink-btn:active{transform:translateY(3px);box-shadow:0 1px 0 #0f4a1f;}
+
+/* Timer Overlay */
+.timer-overlay{
+display:none;position:fixed;inset:0;
+background:rgba(0,0,0,0.88);z-index:9999;
+flex-direction:column;align-items:center;
+justify-content:center;gap:18px;
+}
+.timer-overlay.show{display:flex;}
+.timer-circle{
+width:90px;height:90px;border-radius:50%;
+background:linear-gradient(135deg,#f4c430,#d4a017);
+display:flex;align-items:center;justify-content:center;
+font-size:36px;font-weight:900;color:#000;
+box-shadow:0 0 40px rgba(244,196,48,0.4);
+}
+.timer-msg{color:#fff;font-size:15px;opacity:0.85;text-align:center;padding:0 20px;}
+.timer-sub{color:#8b949e;font-size:12px;text-align:center;}
+.timer-skip{
+margin-top:5px;background:none;
+border:1px solid #30363d;color:#8b949e;
+padding:8px 24px;border-radius:8px;
+cursor:pointer;font-size:12px;transition:0.2s;
+}
+.timer-skip:hover{border-color:#8b949e;color:#fff;}
+
+/* Loader */
+.loader{display:none;text-align:center;padding:20px;}
+.spinner{
+width:30px;height:30px;
+border:3px solid #333;border-top:3px solid var(--gold);
+border-radius:50%;animation:spin 1s linear infinite;margin:auto;
+}
+@keyframes spin{to{transform:rotate(360deg);}}
+
+/* Result */
+.result{margin-top:15px;}
+.item{
+background:#0d1117;padding:12px;
+border-radius:10px;margin-bottom:10px;
+animation:fade 0.4s ease;
+}
+.label{font-size:12px;color:var(--muted);}
+.value{font-size:14px;font-weight:600;}
+
+/* Ad Boxes */
+.ad-box{
+background:#0d1117;
+border:1px solid #21262d;
+border-radius:12px;
+padding:8px 8px 6px;
+text-align:center;
+overflow:hidden;
+}
+.ad-box.top{margin-bottom:12px;}
+.ad-box.bottom{margin-top:14px;}
+.ad-box.native{margin-top:14px;text-align:left;}
+.ad-lbl{
+font-size:9px;color:#30363d;
+text-transform:uppercase;letter-spacing:0.5px;
+margin-bottom:4px;text-align:center;
+}
+
+/* Credit */
+.credit{text-align:center;margin-top:15px;font-size:11px;color:var(--muted);}
+
+@keyframes fade{
+from{opacity:0;transform:translateY(10px);}
+to{opacity:1;}
+}
+</style>
+</head>
+<body>
+
+<!-- Timer Overlay -->
+<div class="timer-overlay" id="timerOverlay">
+  <div class="timer-circle" id="timerCount">10</div>
+  <div class="timer-msg">⏳ Please wait, processing your request...</div>
+  <div class="timer-sub">Ad dekh kar support karein 🙏</div>
+  <button class="timer-skip" onclick="skipTimer()">Skip ›</button>
+</div>
+
+<!-- Header -->
+<div class="header">
+  <div class="bismillah">بِسْمِ ٱللَّٰهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</div>
+  <div class="welcome">Welcome! ADIL & KHOKHAR Database Checker</div>
+</div>
+
+<div class="container">
+<div class="card">
+
+  <div class="toggle">
+    <button class="active" onclick="setType('phone',this)">Phone</button>
+    <button onclick="setType('cnic',this)">CNIC</button>
+  </div>
+
+  <!-- TOP BANNER AD — 320x50 -->
+  <div class="ad-box top">
+    <div class="ad-lbl">Advertisement</div>
+    <script type="text/javascript">
+      atOptions = {
+        'key' : 'b17cbb4cae9fa5f11a417cbe192b21b0',
+        'format' : 'iframe',
+        'height' : 50,
+        'width' : 320,
+        'params' : {}
+      };
+    </script>
+    <script type="text/javascript" src="//www.highperformanceformat.com/b17cbb4cae9fa5f11a417cbe192b21b0/invoke.js"></script>
+  </div>
+
+  <!-- Input + Search -->
+  <div class="input-box">
+    <input type="text" id="input" placeholder="Enter number...">
+    <button class="btn" onclick="startSearch()">Search</button>
+  </div>
+
+  <!-- Smart Link Button — Search ke neeche -->
+  <button class="smartlink-btn" onclick="openSmartLink()">
+    🔗 Verify & Get Result
+  </button>
+
+  <!-- Loader -->
+  <div class="loader" id="loader">
+    <div class="spinner"></div>
+    <p style="margin-top:8px;color:var(--muted);font-size:13px;">Searching database...</p>
+  </div>
+
+  <!-- Result -->
+  <div id="result" class="result"></div>
+
+  <!-- NATIVE BANNER AD -->
+  <div class="ad-box native">
+    <div class="ad-lbl">Sponsored</div>
+    <script type="text/javascript" async data-cfasync="false" src="//pl29132912.profitablecpmratenetwork.com/c2f579805fbf25531231576237d7b703/invoke.js"></script>
+    <div id="container-c2f579805fbf25531231576237d7b703"></div>
+  </div>
+
+  <!-- BOTTOM BANNER AD — 300x250 -->
+  <div class="ad-box bottom">
+    <div class="ad-lbl">Advertisement</div>
+    <script type="text/javascript">
+      atOptions = {
+        'key' : '1d7bc8aea96970670ffb5e182766a441',
+        'format' : 'iframe',
+        'height' : 250,
+        'width' : 300,
+        'params' : {}
+      };
+    </script>
+    <script type="text/javascript" src="//www.highperformanceformat.com/1d7bc8aea96970670ffb5e182766a441/invoke.js"></script>
+  </div>
+
+  <div class="credit">Developed By: ADIL KHOKER</div>
+
+</div>
+</div>
+
+<script>
+const API = "https://famofc.site/api/database.php";
+const SMART_LINK = "https://www.profitablecpmratenetwork.com/dwzkt6ix?key=75f31b3ac33d22455f4a218eb9f43d7b";
+
+let timerInterval = null;
+
+function setType(t, el){
+  document.querySelectorAll(".toggle button").forEach(b => b.classList.remove("active"));
+  el.classList.add("active");
+}
+
+// Sirf Smart Link button se
+function openSmartLink(){
+  window.open(SMART_LINK, '_blank');
+}
+
+// Search button click → Smart Link + 10sec timer → phir search
+function startSearch(){
+  let val = document.getElementById("input").value.trim();
+  if(!val) return alert("Enter value");
+
+  // Smart Link nayi tab mein kholo
+  window.open(SMART_LINK, '_blank');
+
+  // 10 second ka timer dikhaо
+  showTimer();
+}
+
+function showTimer(){
+  let count = 10;
+  document.getElementById("timerCount").textContent = count;
+  document.getElementById("timerOverlay").classList.add("show");
+
+  timerInterval = setInterval(() => {
+    count--;
+    document.getElementById("timerCount").textContent = count;
+    if(count <= 0){
+      clearInterval(timerInterval);
+      hideTimerAndSearch();
+    }
+  }, 1000);
+}
+
+function skipTimer(){
+  clearInterval(timerInterval);
+  hideTimerAndSearch();
+}
+
+function hideTimerAndSearch(){
+  document.getElementById("timerOverlay").classList.remove("show");
+  doSearch();
+}
+
+async function doSearch(){
+  let val = document.getElementById("input").value.trim();
+  if(!val) return;
+
+  document.getElementById("loader").style.display = "block";
+  document.getElementById("result").innerHTML = "";
+
+  try{
+    let res = await fetch(`${API}?q=${encodeURIComponent(val)}`);
+    let data = await res.json();
+
+    if(!data.success) throw new Error();
+
+    let html = "";
+    data.data.records.forEach(r => {
+      html += `
+      <div class="item">
+        <div class="label">Name</div>
+        <div class="value">${r.full_name||"N/A"}</div>
+        <div class="label">Phone</div>
+        <div class="value">${r.phone||"N/A"}</div>
+        <div class="label">CNIC</div>
+        <div class="value">${r.cnic||"N/A"}</div>
+        <div class="label">Address</div>
+        <div class="value">${r.address||"N/A"}</div>
+      </div>`;
+    });
+
+    document.getElementById("result").innerHTML = html;
+
+  }catch{
+    document.getElementById("result").innerHTML = `<div class="item" style="color:#f85149;">❌ No Data Found</div>`;
+  }
+
+  document.getElementById("loader").style.display = "none";
+}
+</script>
+
+</body>
+</html>
